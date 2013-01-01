@@ -11,21 +11,21 @@ export const CalculatorBody = (props)=>{
 	const {setUserAction} = props;
 
 	const fieldButtons = [
-	{buttons:numbers, Type:CalculusButton},
+		{buttons:numbers, Type:CalculusButton},
 
-	{buttons:operators, Type:CalculusButton},
+		{buttons:operators, Type:CalculusButton},
 
-	{buttons:functions, Type:CalculusButton,
-	css:query("medium",css`
-		display:none;
-		background:green;
-	`)},
+		{buttons:functions, Type:CalculusButton,
+		css:query("medium",css`
+			display:none;
+			background:green;
+		`)},
 
-	{buttons:standar, Type:ActionButton,
-	css:`
-		${query("small",css`grid-column:1/3;`)}
-		${query("tiny",css`grid-column:1/2;`)}
-	`},
+		{buttons:standar, Type:ActionButton,
+		css:`
+			${query("small",css`grid-column:1/3;`)}
+			${query("tiny",css`grid-column:1/2;`)}
+		`},
 	]
 
 	return(
@@ -53,6 +53,10 @@ export const CalculatorBody = (props)=>{
 	}
 	</Grid>
 	);
+}
+
+CalculatorBody.propTypes = {
+	setUserAction:PropTypes.func.isRequired
 }
 
 export const FieldWrapper = (props)=>{
@@ -83,7 +87,7 @@ export const FieldWrapper = (props)=>{
 }
 
 FieldWrapper.propTypes = {
-	buttons:PropTypes.array,
-	Type:PropTypes.any,
-	setUserAction:PropTypes.func
+	buttons:PropTypes.array.isRequired,
+	Type:PropTypes.any.isRequired,
+	setUserAction:PropTypes.func.isRequired
 }

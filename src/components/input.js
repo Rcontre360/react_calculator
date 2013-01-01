@@ -5,7 +5,6 @@ import styled,{css} from "styled-components";
 import {Input,Flex,Container,BigInput,Result,query} from "./styledComponents";
 
 const StandarInput = (props)=>{
-	const {styles} = props;
 
 	return(
 		<Input 
@@ -43,6 +42,7 @@ const CalculatorInput = (props)=>{
 			<Result 
 				id="display" 
 				active={resultGiven}
+				data-test={"result_component"}
 				css={
 					query("medium",css`font-size:100%;`)
 				}
@@ -58,6 +58,7 @@ const CalculatorInput = (props)=>{
 				padding:0px;`} 
 				onChange={directChange} 
 				value={calculatorString}
+				data-test={"calculator_input_component"}
 			/>
 		</Container>
 	</Container>
@@ -65,9 +66,9 @@ const CalculatorInput = (props)=>{
 }
 
 CalculatorInput.propTypes = {
-	calculatorString:PropTypes.string,
-	setCalculatorString:PropTypes.func,
-	result:PropTypes.string
+	calculatorString:PropTypes.string.isRequired,
+	setCalculatorString:PropTypes.func.isRequired,
+	result:PropTypes.string.isRequired
 }
 
 export {

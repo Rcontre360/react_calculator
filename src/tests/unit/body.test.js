@@ -33,11 +33,7 @@ describe("Body elements testing",()=>{
 
 		beforeEach(()=>{	
 			props={
-				setCalculatorString:()=>{},
-				setPrevResult:()=>{},
-				setResult:()=>{},
-				prevResult:"test value",
-				calculatorString:"test value"
+				setUserAction:()=>{}
 			};
 			component = setComponent(CalculatorBody,props);
 		});

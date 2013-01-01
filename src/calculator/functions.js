@@ -1,7 +1,7 @@
 import {evaluate} from "mathjs";
 import {operators,numbers} from "./calcButtons";
 
-const withoutRepeatedSymbols = (symbols,str,not=[])=>{
+export const withoutRepeatedSymbols = (symbols,str,not=[])=>{
 	let res="",count=0;
 
 	for (let i=str.length-1;i>=0;i--){
@@ -25,10 +25,11 @@ const withoutRepeatedSymbols = (symbols,str,not=[])=>{
 
 export const parseCalculationString = (str)=>{
 	let res = "";
+	if (!str)
+		return;
 	res = withoutRepeatedSymbols(operators,str,
 		[{str:"-"},{str:"("},{str:")"}]);
-	return withoutRepeatedSymbols(numbers,res,
-		[{str:"1"},{str:"2"},{str:"3"},{str:"4"},{str:"5"},{str:"6"},{str:"7"},{str:"8"},{str:"9"},{str:"0"}]);
+	return withoutRepeatedSymbols([{str:"."},{str:","}],res);
 }
 
 export const evaluateString = (str)=>{

@@ -32,9 +32,9 @@ describe("Buttons test",()=>{
 		beforeEach(()=>{	
 			props = {
 				str:"test value",
-				btnfunction:()=>{}
+				btnfunction:jest.fn()
 			};
-			component = setComponent(CalculusButton,props).dive();
+			component = setComponent(CalculusButton,props);
 		});
 
 		it("Should have valid props",()=>{
@@ -43,9 +43,14 @@ describe("Buttons test",()=>{
 		})
 
 		it("Should render without errors",()=>{
-			const wrapper = findChild(component,"standar_btn");
+			const wrapper = findChild(component,"calculus_btn");
 			expect(wrapper.exists()).toBe(true);
 		});
+
+		it("Should call btnfunction when clicked",()=>{
+			component.simulate("click");
+			expect(component.prop("btnfunction")).toHaveBeenCalled();
+		})
 
 	});
 
@@ -55,9 +60,9 @@ describe("Buttons test",()=>{
 			props = {
 				str:"test value",
 				action:"test value",
-				btnfunction:()=>{}
+				btnfunction:jest.fn()
 			};
-			component = setComponent(ActionButton,props).dive();
+			component = setComponent(ActionButton,props);
 		});
 
 		it("Should have valid props",()=>{
@@ -66,9 +71,14 @@ describe("Buttons test",()=>{
 		})
 
 		it("Should render without errors",()=>{
-			const wrapper = findChild(component,"standar_btn");
+			const wrapper = findChild(component,"action_btn");
 			expect(wrapper.exists()).toBe(true);
 		});
+
+		it("Should call btnfunction when clicked",()=>{
+			component.simulate("click");
+			expect(component.prop("btnfunction")).toHaveBeenCalled();
+		})
 
 	})
 

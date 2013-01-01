@@ -49,6 +49,20 @@ describe("Input elements testing",()=>{
 			expect(wrapper.exists()).toBe(true);
 		});
 
+		describe("Calculator input child components",()=>{
+
+			it("Should render Result component",()=>{
+				const wrapper = findChild(component,"result_component");
+				expect(wrapper.exists()).toBe(true);
+			});
+
+			it("Should render Input component",()=>{
+				const wrapper = findChild(component,"calculator_input_component");
+				expect(wrapper.exists()).toBe(true);
+			});
+
+		});
+
 	});
 
 });

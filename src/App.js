@@ -77,7 +77,7 @@ class App extends React.Component{
 				}
 				break;
 			case "PREV_RESULT":
-				string = string+prevResult
+				string = string+this.state.prevResult
 				break;
 			case "DELETE_ALL":
 				resString = "0";
@@ -115,9 +115,11 @@ class App extends React.Component{
 					setCalculatorString={this.setCalculatorString}
 					result={this.state.result}
 					{...this.state}
+					data-test="calculator_input_component"
 				/>
 				<CalculatorBody 
 					setUserAction={this.setUserAction}
+					data-test="calculator_body_component"
 				/>
 			</Container>
 		</ThemeProvider>

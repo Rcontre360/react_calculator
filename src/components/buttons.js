@@ -36,6 +36,7 @@ export const ActionButton = (props)=>{
 
 	return(
 		<StandarButton 
+			data-test="action_btn"
 			onClick={()=>btnfunction({action})} 
 			{...props}
 		>
@@ -45,9 +46,9 @@ export const ActionButton = (props)=>{
 }
 
 ActionButton.propTypes = {
-	str:PropTypes.string,
-	btnfunction:PropTypes.func,
-	action:PropTypes.string
+	str:PropTypes.string.isRequired,
+	btnfunction:PropTypes.func.isRequired,
+	action:PropTypes.string.isRequired
 }
 
 export const CalculusButton = (props)=>{
@@ -55,6 +56,7 @@ export const CalculusButton = (props)=>{
 
 	return(
 		<StandarButton 
+			data-test="calculus_btn"
 			onClick={e=>btnfunction({action:"APPEND",str})} 
 			{...props}
 		>
@@ -64,7 +66,7 @@ export const CalculusButton = (props)=>{
 }
 
 CalculusButton.propTypes = {
-	str:PropTypes.string,
-	btnfunction:PropTypes.func
+	str:PropTypes.string.isRequired,
+	btnfunction:PropTypes.func.isRequired
 }
 
