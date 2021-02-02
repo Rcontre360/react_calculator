@@ -9,14 +9,14 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
+    "web-vitals": "^0.2.4",
+    "styled-components":"^5.2.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev":"concurrently \"sass --watch public/sass:public/css\" \"npm start\""
+    "eject": "react-scripts eject"
   },
   "browserslist": {
     "production": [
