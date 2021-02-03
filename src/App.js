@@ -2,6 +2,7 @@ import React from "react";
 import {CalculatorInput} from "./components/input";
 import {CalculatorBody} from "./components/body";
 import CalculatorContext from "./calculator/context";
+import propTypes from "prop-types";
 
 class App extends React.Component{
 
