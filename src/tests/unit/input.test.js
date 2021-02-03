@@ -33,6 +33,7 @@ describe("Input elements testing",()=>{
 		beforeEach(()=>{	
 			props = {
 				calculatorString:"test value",
+				result:"test value",
 				setCalculatorString:()=>{}
 			};
 			component = setComponent(CalculatorInput,props);

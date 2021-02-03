@@ -1,22 +1,22 @@
 
 export const numbers = [
-	{str:"1"},
-	{str:"2"},
-	{str:"3"},
-	{str:"4"},
-	{str:"5"},
-	{str:"6"},
-	{str:"7"},
-	{str:"8"},
-	{str:"9"},
-	{str:"0"}
+	{str:"1",id:"one"},
+	{str:"2",id:"two"},
+	{str:"3",id:"three"},
+	{str:"4",id:"four"},
+	{str:"5",id:"five"},
+	{str:"6",id:"six"},
+	{str:"7",id:"seven"},
+	{str:"8",id:"eight"},
+	{str:"9",id:"nine"},
+	{str:"0",id:"zero"}
 ]
 
 export const operators = [
-	{str:"+"},
-	{str:"-"},
-	{str:"*"},
-	{str:"/"},
+	{str:"+",id:"add"},
+	{str:"-",id:"substract"},
+	{str:"*",id:"multiply"},
+	{str:"/",id:"divide"},
 	{str:"**"},
 	{str:"%"},
 ]
@@ -30,6 +30,20 @@ export const functions = [
 	{str:"cot()"},
 	{str:"sec()"},
 	{str:"csc()"},
+]
+
+export const symbols = [
+	{str:".",id:"decimal"},
+	{str:","},
+	{str:"("},
+	{str:")"}
+]
+
+export const standar = [
+	{str:"=",id:"equals",action:"SHOW_RESULT"},
+	{str:"DEL",id:"clear",action:"DELETE_FORMULA"},
+	{str:"Zero",action:"DELETE_ALL"},
+	{str:"<-",action:"DELETE_ONE"}
 ]
 
 

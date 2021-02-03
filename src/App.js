@@ -9,7 +9,7 @@ class App extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {
-			result:"",
+			result:"0",
 			calculatorString:""
 		}
 		this.setResult = this.setResult.bind(this);
