@@ -17,13 +17,13 @@ export const operators = [
 	{str:"-",id:"substract"},
 	{str:"*",id:"multiply"},
 	{str:"/",id:"divide"},
-	{str:"**"},
+	{str:"^"},
 	{str:"%"},
 ]
 
 export const functions = [
 	{str:"pow()"},
-	{str:"sqr()"},
+	{str:"sqrt()"},
 	{str:"sin()"},
 	{str:"cos()"},
 	{str:"tan()"},
@@ -43,7 +43,8 @@ export const standar = [
 	{str:"=",id:"equals",action:"SHOW_RESULT"},
 	{str:"DEL",id:"clear",action:"DELETE_FORMULA"},
 	{str:"Zero",action:"DELETE_ALL"},
-	{str:"<-",action:"DELETE_ONE"}
+	{str:"<-",action:"DELETE_ONE"},
+	{str:"ANS",action:"PREV_RESULT"}
 ]
 
 

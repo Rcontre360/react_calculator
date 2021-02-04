@@ -2,16 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export const StandarButton = (props)=>{
-	const {children,onClick} = props;
+	const {children,onClick,id} = props;
 
 	if (!onClick) 
 		onClick = e=>e;
 
 	return(
-		<button onClick={onClick} className="btn" data-test="standar_btn" {...props}>
+		<button onClick={onClick} className="btn" data-test="standar_btn" id={id}>
 			{children}
 		</button>
 	);
+}
+
+StandarButton.propTypes = {
+	onClick:PropTypes.func
 }
 
 export const ActionButton = (props)=>{
@@ -24,6 +28,12 @@ export const ActionButton = (props)=>{
 	);
 }
 
+ActionButton.propTypes = {
+	str:PropTypes.string,
+	btnfunction:PropTypes.func,
+	action:PropTypes.string
+}
+
 export const CalculusButton = (props)=>{
 	const {str,btnfunction} = props;
 
@@ -32,5 +42,10 @@ export const CalculusButton = (props)=>{
 			{str}
 		</StandarButton>
 	);
+}
+
+CalculusButton.propTypes = {
+	str:PropTypes.string,
+	btnfunction:PropTypes.func
 }
 

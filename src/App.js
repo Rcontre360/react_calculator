@@ -1,8 +1,9 @@
 import React from "react";
+import propTypes from "prop-types";
+
 import {CalculatorInput} from "./components/input";
 import {CalculatorBody} from "./components/body";
 import CalculatorContext from "./calculator/context";
-import propTypes from "prop-types";
 
 class App extends React.Component{
 
@@ -10,10 +11,12 @@ class App extends React.Component{
 		super(props);
 		this.state = {
 			result:"0",
-			calculatorString:""
+			calculatorString:"",
+			prevResult:"0"
 		}
 		this.setResult = this.setResult.bind(this);
 		this.setCalculatorString = this.setCalculatorString.bind(this);
+		this.setPrevResult = this.setPrevResult.bind(this);
 	}
 
 	setResult(result){
@@ -24,13 +27,24 @@ class App extends React.Component{
 		this.setState({calculatorString});
 	}
 
+	setPrevResult(prevResult){
+		this.setState({prevResult});
+	}
+
 	render(){
 	return(
 		<div className="container">
-			<CalculatorInput setCalculatorString={this.setCalculatorString}{...this.state}/>
+			<CalculatorInput 
+				setCalculatorString={this.setCalculatorString}
+				result={this.state.result} 
+				{...this.state}
+			/>
 			<CalculatorContext.Provider value={{
 				calculatorString:this.state.calculatorString,
-				setCalculatorString:this.setCalculatorString
+				setCalculatorString:this.setCalculatorString,
+				setResult:this.setResult,
+				prevResult:this.state.prevResult,
+				setPrevResult:this.setPrevResult
 			}}>
 				<CalculatorBody />
 			</CalculatorContext.Provider>
