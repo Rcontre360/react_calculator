@@ -39,15 +39,13 @@ class App extends React.Component{
 				result={this.state.result} 
 				{...this.state}
 			/>
-			<CalculatorContext.Provider value={{
-				calculatorString:this.state.calculatorString,
-				setCalculatorString:this.setCalculatorString,
-				setResult:this.setResult,
-				prevResult:this.state.prevResult,
-				setPrevResult:this.setPrevResult
-			}}>
-				<CalculatorBody />
-			</CalculatorContext.Provider>
+			<CalculatorBody 
+				calculatorString={this.state.calculatorString}
+				setCalculatorString={this.setCalculatorString}
+				setResult={this.setResult}
+				prevResult={this.state.prevResult}
+				setPrevResult={this.setPrevResult}
+			/>
 		</div>
 	);
 	}

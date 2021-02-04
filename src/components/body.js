@@ -1,44 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {evaluate} from "mathjs";
 
 import {CalculusButton,ActionButton} from "./buttons";
 import {numbers,operators,standar,symbols,functions} from "../calculator/calcButtons";
 import CalculatorContext from "../calculator/context";
-import {parseCalculationString} from "../calculator/functions";
+import {parseCalculationString,evaluateString} from "../calculator/functions";
 
 export const CalculatorBody = (props)=>{
 
-	return(
-	<div className="buttons_container" data-test="calculator_body">
-		<FieldWrapper buttons={numbers} Type={CalculusButton}/>
-		<FieldWrapper buttons={operators} Type={CalculusButton}/>
-		<FieldWrapper buttons={functions} Type={CalculusButton}/>
-		<FieldWrapper buttons={symbols} Type={CalculusButton}/>
-		<FieldWrapper buttons={standar} Type={ActionButton}/>
-	</div>
-	);
-}
-
-const evaluateString = (str)=>{
-	let res;
-	try {
-		res = evaluate(str);
-	} catch(err){
-		res = false;
-	}
-	return res;
-}
-
-export const FieldWrapper = (props)=>{
-	const {buttons,Type} = props;
 	const {
 		setCalculatorString,
 		calculatorString,
 		setResult,
 		prevResult,
 		setPrevResult
-	} = React.useContext(CalculatorContext);
+	} = props
 
 	const setUserAction = (btn)=>{
 		const {action} = btn;
@@ -76,6 +52,7 @@ export const FieldWrapper = (props)=>{
 				console.log("switch default. Check error",btn);
 				break;
 		}
+		console.log(string,resString)
 
 		string = parseCalculationString(string);
 		setCalculatorString(string);
@@ -84,12 +61,26 @@ export const FieldWrapper = (props)=>{
 	}
 
 	return(
+	<div className="buttons_container" data-test="calculator_body">
+		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={numbers} Type={CalculusButton}/>
+		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={operators} Type={CalculusButton}/>
+		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={functions} Type={CalculusButton}/>
+		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={symbols} Type={CalculusButton}/>
+		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={standar} Type={ActionButton}/>
+	</div>
+	);
+}
+
+export const FieldWrapper = (props)=>{
+	const {buttons,Type,setUserAction} = props;
+
+	return(
 		<div className="btn_field" data-test="field_wrapper">
 		{
 			(buttons.length>0 && Type) 
 			&&
 			buttons.map((btn,i)=>
-				<Type btnfunction={setUserAction.bind(this)} {...btn} key={i}>
+				<Type btnfunction={setUserAction} {...btn} key={i}>
 					{btn.str}
 				</Type>
 			)

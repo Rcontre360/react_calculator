@@ -1,3 +1,4 @@
+import {evaluate} from "mathjs";
 import {operators,symbols} from "./calcButtons";
 
 const withoutRepeatedSymbols = (symbols,str,not=[])=>{
@@ -26,5 +27,15 @@ export const parseCalculationString = (str)=>{
 	let res = "";
 	res = withoutRepeatedSymbols(operators,str,[{str:"-"}]);
 	return withoutRepeatedSymbols(symbols,res,[{str:"("},{str:")"}]);
+}
+
+export const evaluateString = (str)=>{
+	let res;
+	try {
+		res = evaluate(str);
+	} catch(err){
+		res = false;
+	}
+	return res;
 }
 
