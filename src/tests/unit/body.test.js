@@ -11,6 +11,7 @@ describe("Body elements testing",()=>{
 		beforeEach(()=>{	
 			props = {
 				buttons:[],
+				setUserAction:()=>{},
 				Type:<div></div>
 			};
 			component = setComponent(FieldWrapper,props);
@@ -31,7 +32,13 @@ describe("Body elements testing",()=>{
 	describe("Calculator body input tests",()=>{
 
 		beforeEach(()=>{	
-			props={};
+			props={
+				setCalculatorString:()=>{},
+				setPrevResult:()=>{},
+				setResult:()=>{},
+				prevResult:"test value",
+				calculatorString:"test value"
+			};
 			component = setComponent(CalculatorBody,props);
 		});
 
@@ -43,6 +50,10 @@ describe("Body elements testing",()=>{
 		it("Should render without errors",()=>{
 			const wrapper = findChild(component,"calculator_body");
 			expect(wrapper.exists()).toBe(true);
+		});
+
+		it("Sould render child fields",()=>{
+			expect(component.find(FieldWrapper).exists()).toBe(true);
 		});
 
 	});

@@ -52,7 +52,6 @@ export const CalculatorBody = (props)=>{
 				console.log("switch default. Check error",btn);
 				break;
 		}
-		console.log(string,resString)
 
 		string = parseCalculationString(string);
 		setCalculatorString(string);
@@ -79,6 +78,14 @@ export const CalculatorBody = (props)=>{
 	);
 }
 
+CalculatorBody.propTypes = {
+	setCalculatorString: PropTypes.func,
+	setResult:PropTypes.func,
+	setPrevResult:PropTypes.func,
+	prevResult:PropTypes.string,
+	calculatorString:PropTypes.string,
+}
+
 export const FieldWrapper = (props)=>{
 	const {buttons,Type,setUserAction} = props;
 
@@ -99,5 +106,6 @@ export const FieldWrapper = (props)=>{
 
 FieldWrapper.propTypes = {
 	buttons:PropTypes.array,
-	Type:PropTypes.any
+	Type:PropTypes.any,
+	setUserAction:PropTypes.func
 }
