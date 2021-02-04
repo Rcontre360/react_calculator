@@ -60,13 +60,21 @@ export const CalculatorBody = (props)=>{
 			setResult(String(resString))
 	}
 
+	const fieldButtons = [
+	{buttons:numbers, Type:CalculusButton},
+	{buttons:operators, Type:CalculusButton},
+	{buttons:functions, Type:CalculusButton},
+	{buttons:symbols, Type:CalculusButton},
+	{buttons:standar, Type:ActionButton},
+	]
+
 	return(
 	<div className="buttons_container" data-test="calculator_body">
-		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={numbers} Type={CalculusButton}/>
-		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={operators} Type={CalculusButton}/>
-		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={functions} Type={CalculusButton}/>
-		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={symbols} Type={CalculusButton}/>
-		<FieldWrapper setUserAction={setUserAction.bind(this)} buttons={standar} Type={ActionButton}/>
+	{
+		fieldButtons.map((field,id)=>{
+			return <FieldWrapper key={id} setUserAction={setUserAction.bind(this)} {...field}/>
+		})
+	}
 	</div>
 	);
 }
