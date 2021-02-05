@@ -1,5 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled,{css} from "styled-components";
+
+import {Button} from "./styledComponents";
+
+const CalculatorButton = styled(Button)`
+	font-size:120%;
+`;
 
 export const StandarButton = (props)=>{
 	const {children,onClick,id} = props;
@@ -8,9 +15,15 @@ export const StandarButton = (props)=>{
 		onClick = e=>e;
 
 	return(
-		<button onClick={onClick} className="btn" data-test="standar_btn" id={id}>
+		<CalculatorButton 
+			onClick={onClick} 
+			css={props.css} 
+			className="btn" 
+			data-test="standar_btn" 
+			id={id}
+		>
 			{children}
-		</button>
+		</CalculatorButton>
 	);
 }
 
@@ -22,7 +35,10 @@ export const ActionButton = (props)=>{
 	const {str,btnfunction,action} = props;
 
 	return(
-		<StandarButton onClick={()=>btnfunction({action})} {...props}>
+		<StandarButton 
+			onClick={()=>btnfunction({action})} 
+			{...props}
+		>
 			{str}
 		</StandarButton>
 	);
@@ -38,7 +54,10 @@ export const CalculusButton = (props)=>{
 	const {str,btnfunction} = props;
 
 	return(
-		<StandarButton onClick={e=>btnfunction({action:"APPEND",str})} {...props}>
+		<StandarButton 
+			onClick={e=>btnfunction({action:"APPEND",str})} 
+			{...props}
+		>
 			{str}
 		</StandarButton>
 	);
