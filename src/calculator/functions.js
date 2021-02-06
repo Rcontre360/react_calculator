@@ -26,7 +26,7 @@ export const withoutRepeatedSymbols = (symbols,str,not=[])=>{
 export const parseCalculationString = (str)=>{
 	let res = "";
 	if (!str)
-		return;
+		return "";
 	res = withoutRepeatedSymbols(operators,str,
 		[{str:"-"},{str:"("},{str:")"}]);
 	return withoutRepeatedSymbols([{str:"."},{str:","}],res);

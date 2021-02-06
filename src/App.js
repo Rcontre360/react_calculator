@@ -81,8 +81,6 @@ class App extends React.Component{
 				break;
 			case "DELETE_ALL":
 				resString = "0";
-				string="";
-				break;
 			case "DELETE_FORMULA":
 				string = "";
 				break;
@@ -96,7 +94,7 @@ class App extends React.Component{
 		}
 
 		string = parseCalculationString(string);
-		this.setCalculatorString(string);
+		this.setCalculatorString(string);;
 		if (resString!==false)
 			this.setResult(String(resString))
 	}
@@ -113,7 +111,6 @@ class App extends React.Component{
 				<GlobalStyle/>
 				<CalculatorInput 
 					setCalculatorString={this.setCalculatorString}
-					result={this.state.result}
 					{...this.state}
 					data-test="calculator_input_component"
 				/>
