@@ -1,4 +1,5 @@
 {
+  "homepage": "https://Rcontre360.github.io/react_calculator",
   "name": "random_quote_machine",
   "version": "0.1.0",
   "private": true,
@@ -10,11 +11,12 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "web-vitals": "^0.2.4",
-    "styled-components":"^5.2.1"
+    "styled-components": "^5.2.1"
   },
-  "devDependencies":{
-    "enzyme":"^3.11.0",
-    "enzyme-adapter-react-16":"^1.15.6"
+  "devDependencies": {
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "gh-pages": "^3.1.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -35,6 +37,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "http://rcontre_calculator.github.io/"
+  }
 }
