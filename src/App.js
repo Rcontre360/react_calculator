@@ -49,13 +49,13 @@ class App extends React.Component{
 
 	onKeyPress(e){
 		let action = "";
-		if (e.code==="Enter"){
+		if (e.key==="Enter" || e.key==="="){
 			action = "SHOW_RESULT";
 			this.setUserAction({action});
 		} else if (e.target.nodeName!=="INPUT"){
 			action = "APPEND";
 			this.setUserAction({action,str:e.key});
-		}
+		} 
 	}
 
 	setUserAction(btn){
@@ -82,7 +82,7 @@ class App extends React.Component{
 			case "DELETE_ALL":
 				resString = "0";
 			case "DELETE_FORMULA":
-				string = "";
+				string = "0";
 				break;
 			case "DELETE_ONE":
 				const end = this.state.calculatorString.length-1;
@@ -94,7 +94,7 @@ class App extends React.Component{
 		}
 
 		string = parseCalculationString(string);
-		this.setCalculatorString(string);;
+		this.setCalculatorString(string);
 		if (resString!==false)
 			this.setResult(String(resString))
 	}

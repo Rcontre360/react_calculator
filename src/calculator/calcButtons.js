@@ -28,7 +28,7 @@ const numbers = [
 
 const operators = [
 	{str:"+",id:"add"},
-	{str:"-",id:"substract"},
+	{str:"-",id:"subtract"},
 	{str:"*",id:"multiply"},
 	{str:"/",id:"divide"},
 	{str:"^"},
@@ -56,8 +56,8 @@ const functions = [
 
 const standar = [
 	{str:"=",id:"equals",action:"SHOW_RESULT"},
-	{str:"DEL",id:"clear",action:"DELETE_FORMULA"},
-	{str:"Zero",action:"DELETE_ALL"},
+	{str:"DEL",action:"DELETE_FORMULA"},
+	{str:"Zero",id:"clear",action:"DELETE_ALL"},
 	{str:"<-",action:"DELETE_ONE"},
 	{str:"ANS",action:"PREV_RESULT"}
 ].map(btn=>{

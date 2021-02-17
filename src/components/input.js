@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled,{css} from "styled-components";
 
 import {Input,Flex,Container,BigInput,Result,query} from "./styledComponents";
+import {parseCalculationString} from "../calculator/functions";
 
 const StandarInput = (props)=>{
 
@@ -29,7 +30,7 @@ const CalculatorInput = (props)=>{
 	},[result]);
 
 	const directChange = e=>{
-		setCalculatorString(e.target.value);
+		setCalculatorString(parseCalculationString(e.target.value));
 	}
 
 	return(
@@ -40,7 +41,7 @@ const CalculatorInput = (props)=>{
 			align-items = center;`
 		}>
 			<Result 
-				id="display" 
+				
 				active={resultGiven}
 				data-test={"result_component"}
 				css={
@@ -50,6 +51,7 @@ const CalculatorInput = (props)=>{
 				{result}
 			</Result>
 			<BigInput as={StandarInput} 
+				id="display" 
 				css={css`width:80%;
 				background:black;
 				border:none;

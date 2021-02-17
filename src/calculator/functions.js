@@ -24,12 +24,32 @@ export const withoutRepeatedSymbols = (symbols,str,not=[])=>{
 }
 
 export const parseCalculationString = (str)=>{
-	let res = "";
+	let res = "",pointComa = false, trailZero=true;
 	if (!str)
 		return "";
+
 	res = withoutRepeatedSymbols(operators,str,
 		[{str:"-"},{str:"("},{str:")"}]);
-	return withoutRepeatedSymbols([{str:"."},{str:","}],res);
+	res =  withoutRepeatedSymbols([{str:"."},{str:","}],res);
+
+	for (let i in res){
+		if (res[i]==="0" && trailZero && res.length>1)
+			res = res.substring(1,res.length)
+		if (res[i]!=="0")
+			trailZero = false;
+		if (res[i]==="." || res[i]===","){
+			if (pointComa){
+				res = res.substring(0,i)+res.substring(i+1, res.length);
+			}
+			pointComa = true;
+		}
+			
+		if (operators.find(el=>el.str===res[i]) || res[i]===" "){
+			pointComa = false;
+		}
+	}
+
+	return res;
 }
 
 export const evaluateString = (str)=>{
